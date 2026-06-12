@@ -1,60 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>ElmoBear's Game Hub</title>
+    <title>ElmoBear's Games</title>
     <style>
         :root { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color-scheme: light dark; }
         body { background-color: #1f1f1f; color: #ccc; margin: 0; padding: 20px; }
-        .section { max-width: 960px; margin: 24px auto; text-align: center; }
+        .section { max-width: 928px; margin: 24px auto; text-align: center; }
         
-        .search-bar { margin-bottom: 30px; }
-        .search-bar input { padding: 12px; font-size: 16px; width: 300px; border: 2px solid #333; border-radius: 8px; background-color: #2d2d2d; color: white; }
+        .search-bar { margin-bottom: 20px; text-align: center; }
+        .search-bar input { padding: 10px; font-size: 16px; width: 300px; border: 5px solid #1f1f1f7c; border-radius: 8px; background-color: rgb(45 45 45); color: #ccc; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+        .game-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 16px -4px; }
         
-        /* Game Cards */
-        .card { border: 2px solid #333; border-radius: 12px; padding: 16px; background-color: #252525; display: flex; flex-direction: column; justify-content: space-between; }
-        
-        /* Category Colors */
-        .card.ti { border-top: 8px solid #425170; }
-        .card.platformer { border-top: 8px solid #0fbd8c; }
-        .card.puzzle { border-top: 8px solid #9966ff; }
-        
-        .card h3 { margin: 10px 0; color: #fff; }
-        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #ff4c4c; color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
-        .btn:hover { background: #ff6666; }
+        .game-item {
+            border: 5px solid #1f1f1f7c;
+            border-radius: 16px;
+            margin: 4px;
+            padding: 16px;
+            background-color: rgb(37, 37, 37);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h3, p { margin: 8px 0; }
+        a { text-decoration: none; color: inherit; }
+        .play-link { display: block; margin-top: 15px; padding: 8px; border: 2px solid #555; border-radius: 8px; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="section">
     <h1>ElmoBear's Games</h1>
+
     <div class="search-bar">
-        <input type="text" id="search-input" onkeyup="filter()" placeholder="Search games...">
+        <input type="text" id="search-input" onkeyup="filterGames()" placeholder="Search games...">
     </div>
 
-    <div class="grid" id="container">
-        <div class="card ti">
-            <h3>Adventure Quest</h3>
-            <p>A fun RPG game I built using the TI engine.</p>
-            <a href="URL_TO_GAME" class="btn">Play Now</a>
-        </div>
-        
-        <div class="card platformer">
-            <h3>Bear Jump</h3>
-            <p>A fast-paced platformer about collecting honey.</p>
-            <a href="URL_TO_GAME" class="btn">Play Now</a>
+    <div class="game-grid" id="game-list">
+        <div class="game-item">
+            <h3>Game Name</h3>
+            <p>A short description of your game.</p>
+            <a href="LINK_HERE" class="play-link">Play</a>
         </div>
     </div>
 </div>
 
 <script>
-  function filter() {
+  function filterGames() {
     let input = document.getElementById('search-input').value.toLowerCase();
-    let cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.style.display = card.textContent.toLowerCase().includes(input) ? "" : "none";
+    let games = document.querySelectorAll('.game-item');
+
+    games.forEach(function (game) {
+      let text = game.textContent.toLowerCase();
+      game.style.display = text.includes(input) ? "" : "none";
     });
   }
 </script>
