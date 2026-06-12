@@ -1,112 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ElmoBear's Games</title>
-<style>
-    :root {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color-scheme: light dark;
-  }
-  body { background-color: #1f1f1f; color: #ccc; margin: 0; padding: 20px; }
-  .section { max-width: 928px; margin: 24px auto; text-align: center; }
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <meta content="Games" property="og:title">
+    <meta content="Various games that I've made." property="og:description">
 
-  .header h1 {
-    font-size: 2.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-    text-align: center;
-  }
+    <style>
+        :root { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color-scheme: light dark; }
+        body { background-color: #1f1f1f; color: #ccc; margin: 0; padding: 20px; }
+        h1 { margin: 16px 0; }
+        h2, h3, p { margin: 8px 0; }
 
-  .search-bar { margin-bottom: 20px; text-align: center; }
-  .search-bar input { padding: 10px; font-size: 16px; width: 300px; border: 5px solid #1f1f1f7c; border-radius: 8px; background-color: rgb(45 45 45); color: #ccc; }
+        .section { max-width: 928px; margin: 24px auto; text-align: center; }
+        .header h1 { font-size: 2.5em; display: flex; align-items: center; justify-content: center; font-weight: normal; }
+        
+        .search-bar { margin-bottom: 20px; text-align: center; }
+        .search-bar input { padding: 10px; font-size: 16px; width: 300px; border: 5px solid #1f1f1f7c; border-radius: 8px; background-color: rgb(45 45 45); color: #ccc; }
 
-  .game-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 16px -4px; }
+        .games {
+            display: -ms-grid;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin: 16px -4px;
+        }
 
-  .game-item {
-    border: 5px solid #1f1f1f7c;
-    border-radius: 16px;
-    margin: 4px;
-    padding: 12px;
-    background-color: rgb(37, 37, 37);
-    height: 150px; 
-    overflow: hidden;
-    transition: 0.2s;
-  }
+        .game-description {
+            position: relative;
+            border-radius: 8px;
+            border: 5px solid #1f1f1f7c;
+            margin: 4px;
+            padding: 6px;
+            background-color: rgb(45, 45, 45);
+            height: 200px;
+            max-height: 150px;
+            overflow: hidden;
+        }
 
-  .game-item:hover { border-color: #444; }
+        #game-item {
+            border: 5px solid #1f1f1f7c;
+            border-radius: 16px;
+            margin: 4px;
+            overflow: hidden;
+            padding: 8px;
+        }
 
-  h3 { font-size: 1.2em; margin: 8px 0; color: #fff; }
-  p { font-size: 0.9em; margin: 8px 0; }
-  
-  a { text-decoration: none; color: inherit; }
-  
-  @media (max-width: 768px) {
-    .game-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 480px) {
-    .game-grid { grid-template-columns: 1fr; }
-  }
-</style>
+        footer { opacity: 0.8; width: 100%; text-align: center; margin-bottom: 16px; }
+        a { text-decoration: none; color: inherit; }
+        p { display: block; margin-block-start: 1em; margin-block-end: 1em; }
+    </style>
 </head>
 <body>
 
 <div class="section header">
-  <h1>
-    <div>ElmoBear's Games</div>
-  </h1>
-  <p>Various games that I've made. Most made in some form of a Scratch mod.</p>
-  <p>These are playable directly in the browser. Mobile support not intentional if present.</p>
+    <h1>ElmoBear's Games</h1>
+    <p>Various games that I've made. Most made in some form of a Scratch mod.</p>
+    <p>These are playable directly in the browser. Mobile support not intentional if present.</p>
 </div>
 
 <div class="search-bar">
-  <input type="text" id="search-input" placeholder="Search games..." oninput="filterGames()">
+    <input type="text" id="search-input" placeholder="Search games..." oninput="filterGames()">
 </div>
 
-<div class="section extensions-outer">
-  <div class="game-grid" id="game-list">
-    
-    <a href="YOUR_GAME_LINK_HERE">
-      <div class="game-item">
-        <h3>Game Title 1</h3>
-        <p>A brief description of this game and why it's cool.</p>
-        <div class="play-link">Play Now</div>
-      </div>
-    </a>
+<div class="section games-outer">
+    <div class="games">
+        <a href="fourlet2.html">
+            <div id="game-item">
+                <div class="game-description">
+                    <h3>Fourlet</h3>
+                    <p>A simple but annoying word game with 4 letter word answers.</p>
+                </div>
+            </div>
+        </a>
 
-    <a href="YOUR_GAME_LINK_HERE">
-      <div class="game-item">
-        <h3>Game Title 2</h3>
-        <p>This game uses the logic for some cool mechanics.</p>
-        <div class="play-link">Play Now</div>
-      </div>
-    </a>
-
-    <a href="YOUR_GAME_LINK_HERE">
-      <div class="game-item">
-        <h3>Game Title 3</h3>
-        <p>A visual-heavy game project with custom assets.</p>
-        <div class="play-link">Play Now</div>
-      </div>
-    </a>
-
-  </div>
+        <a href="gtword.html">
+            <div id="game-item">
+                <div class="game-description">
+                    <h3>gtword</h3>
+                    <p>Wordle but Google Translate offers hints that aren't always helpful. Thanks bud.</p>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
 
 <script>
-  function filterGames() {
-    let searchInput = document.getElementById('search-input').value.toLowerCase();
-    let games = document.querySelectorAll('.extensions a');
-
-    games.forEach(function (game) {
-      let title = game.querySelector('h3').textContent.toLowerCase();
-      let description = game.querySelector('p').textContent.toLowerCase();
-
-      let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
-      game.style.display = matchesSearch ? '' : 'none';
-    });
-  }
+    function filterGames() {
+        let searchInput = document.getElementById('search-input').value.toLowerCase();
+        let games = document.querySelectorAll('.games a');
+        games.forEach(function (game) {
+            let title = game.querySelector('h3').textContent.toLowerCase();
+            let description = game.querySelector('p').textContent.toLowerCase();
+            let matchesSearch = title.includes(searchInput) || description.includes(searchInput);
+            game.style.display = matchesSearch ? '' : 'none';
+        });
+    }
 </script>
 
 </body>
